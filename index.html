@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sanmao Channel Official Ultimate PRO Website">
+  <title>Sanmao Channel Online</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Poppins, sans-serif
+    }
+    html {
+      scroll-behavior: smooth
+    }
+    body {
+      background: linear-gradient(270deg, #ff0080, #7928ca, #00c6ff, #00ff95);
+      background-size: 800% 800%;
+      animation: bgMove 18s ease infinite;
+      color: #fff;
+      transition: .3s
+    }
+    @keyframes bgMove {
+      0% {
+        background-position: 0% 50%
+      }
+      50% {
+        background-position: 100% 50%
+      }
+      100% {
+        background-position: 0% 50%
+      }
+    }
+    header {
+      background: rgba(0, 0, 0, .8);
+      backdrop-filter: blur(10px);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999
+    }
+    nav a {
+      color: #fff;
+      margin-left: 18px;
+      text-decoration: none;
+      font-weight: 600
+    }
+    nav a:hover {
+      color: #00ffd5
+    }
+    .hero {
+      height: 95vh;
+      background: linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .65)), url('logo.png');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center
+    }
+    .hero h1 {
+      font-size: 58px;
+      text-shadow: 0 0 15px #00ffd5, 0 0 30px #ff00ff, 0 0 45px #00c6ff
+    }
+    .btn {
+      background: linear-gradient(45deg, #00ffd5, #ff00ff);
+      border: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      color: #000;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 15px
+    }
+    section {
+      padding: 70px 40px
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #000
+    }
+    .grid {
+      display: grid;
+      gap: 20px
+    }
+    .videos {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+    }
+    iframe {
+      width: 100%;
+      height: 220px;
+      border-radius: 12px;
+      border: none
+    }
+    .card {
+      background: rgba(0, 0, 0, .65);
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 0 20px rgba(0, 255, 213, .5)
+    }
+    .stats {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      max-width: 900px;
+      margin: auto
+    }
+    .stat {
+      text-align: center
+    }
+    .subscribe {
+      background: rgba(0, 0, 0, .8);
+      text-align: center
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: none
+    }
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 30px
+    }
+    .dark {
+      filter: hue-rotate(180deg)
+    }
+    .topbtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #00ffd5;
+      color: #000;
+      padding: 12px;
+      border-radius: 50%;
+      display: none;
+      cursor: pointer
+    }
+    .admin {
+      display: none;
+      background: #000;
+      padding: 20px
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h2>Sanmao Channel Online</h2>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#videos">Videos</a>
+      <a href="#donate">Support</a>
+      <a href="#contact">Contact</a>
+      <a href="#" onclick="toggleDark()">🌙</a>
+      <a href="#" onclick="adminLogin()">Admin</a>
+    </nav>
+  </header>
+  <section id="home" class="hero">
+    <div>
+      <h1>Sanmao Channel Online</h1>
+      <p>Electronics Repair • Qualification skills •Tutorials • Technology</p>
+      <button class="btn" onclick="scrollToVideos()">Watch Now</button>
+    </div>
+  </section>
+  <section>
+    <h2>Live Channel Stats</h2>
+    <div class="grid stats">
+      <div class="card stat">
+        <h3 id="subs">10,000+</h3>
+        <p>Subscribers</p>
+      </div>
+      <div class="card stat">
+        <h3 id="views">1,200,000+</h3>
+        <p>Total Views</p>
+      </div>
+      <div class="card stat">
+        <h3>500+</h3>
+        <p>Videos</p>
+      </div>
+    </div>
+  </section>
+  <section id="videos">
+    <h2>Latest Videos</h2>
+    <div class="grid videos" id="videoContainer">
+      <iframe src="https://www.youtube.com/@KeharaTV"></iframe>
+      <iframe src="https://www.youtube.com/@KeharaTV"></iframe>
+      <iframe src="https://www.youtube.com/@KeharaTV"></iframe>
+    </div>
+  </section>
+  <section id="donate">
+    <h2>Support the Channel</h2>
+    <div class="grid" style="max-width:700px;margin:auto">
+      <div class="card">
+        <h3>GCash</h3>
+        <p>Support tutorials and repairs.</p>
+        <button class="btn">Donate</button>
+      </div>
+      <div class="card">
+        <h3>Paymaya</h3>
+        <p>Support tutorials and repairs.</p>
+        <button class="btn">Donate</button>
+      </div>
+      <div class="card">
+        <h3>PayPal</h3>
+        <p>International Support.</p>
+        <button class="btn">Donate</button>
+      </div>
+    </div>
+  </section>
+  <section class="subscribe">
+    <h2>Subscribe Updates</h2>
+    <input placeholder="Email Address">
+    <button class="btn">Subscribe</button>
+  </section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <form onsubmit="return sendMsg()" style="max-width:600px;margin:auto">
+      <input required="" placeholder="Name">
+      <input required="" placeholder="Email">
+      <textarea required="" placeholder="Message"></textarea>
+      <button class="btn">Send</button>
+    </form>
+  </section>
+  <section class="admin" id="adminPanel">
+    <h2>Admin Upload Panel</h2>
+    <input id="videoURL" placeholder="YouTube Embed URL">
+    <button class="btn" onclick="addVideo()">Add Video</button>
+  </section>
+  <footer>
+    <p>© 2026 Sanmao Channel Online</p>
+  </footer>
+  <div class="topbtn" onclick="topFunction()">↑</div>
+  <script>
+    function toggleDark() {
+      document.body.classList.toggle('dark')
+    }
+
+    function scrollToVideos() {
+      document.getElementById('videos').scrollIntoView({
+        behavior: 'smooth'
+      })
+    }
+    window.onscroll = function() {
+      document.querySelector('.topbtn').style.display = window.scrollY > 300 ? 'block' : 'none'
+    }
+
+    function topFunction() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+    }
+
+    function sendMsg() {
+      alert('Message Sent!');
+      return false
+    }
+
+    // Fake live counter animation
+    setInterval(() => {
+      let s = document.getElementById('subs');
+      let v = document.getElementById('views');
+      s.innerText = parseInt(Math.random() * 20000) + "+";
+      v.innerText = parseInt(Math.random() * 2000000) + "+";
+    }, 5000);
+
+    // Admin login
+    function adminLogin() {
+      let pass = prompt('Enter Admin Password');
+      if (pass === 'sanmao123') {
+        document.getElementById('adminPanel').style.display = 'block'
+      }
+    }
+
+    function addVideo() {
+      let url = document.getElementById('videoURL').value;
+      if (url) {
+        let iframe = document.createElement('iframe');
+        iframe.src = url;
+        document.getElementById('videoContainer').prepend(iframe);
+      }
+    }
+  </script>
+</body>
+
+</html>
